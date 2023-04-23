@@ -1,4 +1,9 @@
-trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
+trigger AccountTrigger on Account (before insert, before update) {
+
+    AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.newMap, trigger.oldMap);                
+    
+
+    /*
 
     List<Account> accTriggerNew = trigger.new;
     List<Account> accTriggerOld = trigger.old;
@@ -8,6 +13,8 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     if (Trigger.isAfter) {
         if (Trigger.isUpdate) {
             Set<Id> accIds = accTriggerNewMap.keySet();
+
+            Integer countWebsite = 0;
 
             for (Id eachId : accIds) {
                 System.debug('eachId --> ' + eachId);
@@ -22,13 +29,14 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
                 
                 if (newWebsite != oldWebsite) {
                     System.debug('Account name is ' + newAccount.Name + ' and new Website is ' + newWebsite);
-                    
+                    countWebsite++;                    
                 }
-            }                       
+            }
+            System.debug('# account website updated --> ' + countWebsite);                       
         }
     }
 
-    /*
+    
 
     Map<Id, Account> accTriggerNewMap = trigger.newMap;
     Map<Id, Account> accTriggerOldMap = trigger.oldMap;

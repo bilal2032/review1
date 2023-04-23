@@ -1,5 +1,8 @@
-trigger ContactTrigger on Contact (before insert, before update, after insert, after update) {
+trigger ContactTrigger on Contact (before update) {
 
+        ContactTriggerHandler.updateContactValidation1(Trigger.New, Trigger.Old);          
+
+    /*
     if (Trigger.isAfter) {
         if (Trigger.isUpdate) {
 
@@ -15,5 +18,5 @@ trigger ContactTrigger on Contact (before insert, before update, after insert, a
                 }                
             }            
         }        
-    }
+    }*/
 }
