@@ -1,6 +1,7 @@
 trigger ContactTrigger on Contact (before update) {
 
-        ContactTriggerHandler.updateContactValidation1(Trigger.New, Trigger.Old);          
+        ContactTriggerHandler.updateContactValidation1(Trigger.New, Trigger.Old, Trigger.OldMap);          
+        ContactTriggerHandler.updateContactValidation2(Trigger.New, Trigger.Old, Trigger.OldMap);          
 
     /*
     if (Trigger.isAfter) {

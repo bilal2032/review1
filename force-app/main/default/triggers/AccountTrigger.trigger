@@ -1,6 +1,14 @@
-trigger AccountTrigger on Account (before insert, before update) {
+trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
 
-    AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.newMap, trigger.oldMap);                
+    if (Trigger.isBefore) {
+        AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.newMap, trigger.oldMap);        
+    }    
+    
+    if (Trigger.isAfter) {
+        if (Trigger.isUpdate) {
+            AccountTriggerHandler.updateVIPforContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);            
+        }        
+    }
     
 
     /*
