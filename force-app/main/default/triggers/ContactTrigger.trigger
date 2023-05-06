@@ -1,7 +1,22 @@
-trigger ContactTrigger on Contact (before update) {
+trigger ContactTrigger on Contact (before update, after insert, after update, after delete, after undelete) {
 
         ContactTriggerHandler.updateContactValidation1(Trigger.New, Trigger.Old, Trigger.OldMap);          
-        ContactTriggerHandler.updateContactValidation2(Trigger.New, Trigger.Old, Trigger.OldMap);          
+        ContactTriggerHandler.updateContactValidation2(Trigger.New, Trigger.Old, Trigger.OldMap);
+        
+        if (Trigger.isAfter) {
+            if (Trigger.isInsert) {
+                ContactTriggerHandler.numberOfContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);                
+            }
+            if (Trigger.isUpdate) {
+                ContactTriggerHandler.numberOfContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);                
+            }
+            if (Trigger.isDelete) {
+                ContactTriggerHandler.numberOfContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);                
+            }
+            if (Trigger.isUndelete) {
+                ContactTriggerHandler.numberOfContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);                
+            }             
+        }
 
     /*
     if (Trigger.isAfter) {

@@ -34,10 +34,10 @@ public with sharing class AccountTriggerHandler {
 
         if (!listCnt.isEmpty()) {
             for (Contact eachContact : listCnt) {
-                Account newAcc = accTriggerNewMap.get(eachContact.AccountId);
-                Boolean accVIP = newAcc.VIP__c;
+                // Account newAcc = accTriggerNewMap.get(eachContact.AccountId);
+                // Boolean accVIP = newAcc.VIP__c;
                 
-                eachContact.VIP__c = accVIP;                
+                eachContact.VIP__c = accTriggerNewMap.get(eachContact.AccountId).VIP__c;                
             }
             update listCnt;            
         }        
