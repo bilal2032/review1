@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Lightning Record Edit Form: SF Ticket" icon-name="standard:strategy">
+        <div class='slds-var-m-around_medium'>
+            <lightning-record-edit-form
+                object-api-name={objectName}
+                onsuccess={successHandler}>
+
+                <!--input fields-->
+                <lightning-messages></lightning-messages>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning-input-field field-name={fields.requester}></lightning-input-field>
+                        <lightning-input-field field-name={fields.spName}></lightning-input-field>
+                        <lightning-input-field field-name={fields.subject}></lightning-input-field>
+                    </div>
+                    <div class="slds-col">
+                        <lightning-input-field field-name={fields.status}></lightning-input-field>
+                        <lightning-input-field field-name={fields.priority}></lightning-input-field>
+                        <lightning-input-field field-name={fields.completedDate}></lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-align_absolute-center">
+                    <lightning-button
+                        class="slds-var-m-right_x-small"
+                        label="Cancel"
+                        variant="neutral"
+                        type="reset">
+                    </lightning-button>
+                    <lightning-button
+                        label="Save"
+                        variant="brand"
+                        type="submit">
+                    </lightning-button>                        
+                </div>
+            </lightning-record-edit-form>
+        </div>        
+    </lightning-card>    
+</template>

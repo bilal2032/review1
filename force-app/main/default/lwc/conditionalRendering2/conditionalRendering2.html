@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Condiitonal Rendering 2" icon-name="standard:forecasts">
+        <div class="slds-var-m-around_large">
+            <lightning-button
+                label="Show/Hide"
+                variant="Brand"
+                onclick={clickHandler}
+                class="slds-var-m-bottom_small">
+            </lightning-button>
+            <template if:true={showContent}>
+                <div class="slds-var-m-top_small">
+                    I am in the market now.<br/>
+                    Wish me luck and make dua for me to fin a job soon.<br/>
+                    I should keep working hard.
+                </div>                
+            </template>
+        </div>
+    </lightning-card>    
+</template>
