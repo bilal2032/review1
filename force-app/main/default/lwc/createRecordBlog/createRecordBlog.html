@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Create Record: Salesforce Ticket" icon-name="standard:contact">
+        <div class="slds-var-m-around_medium">
+            <form class="ticketform">
+                <!--Subject-->
+                <lightning-input
+                    type="text"
+                    label="Subject"
+                    name="Subject__c"
+                    onchange={changeHandler}>
+                </lightning-input>
+                <!--Salesforce Project-->
+                <lightning-input
+                    type="text"
+                    label="Salesforce Project"
+                    name="Salesforce_Project__c"
+                    onchange={changeHandler}>
+                </lightning-input>
+                <!--Discription-->
+                <lightning-input
+                    type="text"
+                    label="Discription"
+                    name="Description__c"
+                    onchange={changeHandler}>
+                </lightning-input>
+                <!--Cance&Save Buttons-->
+                <div class="slds-align_absolute-center slds-var-m-around_medium">
+                    <lightning-button
+                        label="Cancel"
+                        variant="neutral"
+                        class="slds-var-m-right_x-small"
+                        onclick={cancelTicket}>
+                    </lightning-button>
+                    <lightning-button
+                        label="Save"
+                        variant="brand"
+                        onclick={saveTicket}>
+                    </lightning-button>                   
+                </div>                 
+            </form>
+        </div>
+    </lightning-card>    
+</template>

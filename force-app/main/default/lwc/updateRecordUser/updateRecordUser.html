@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Update Record: User" icon-name="standard:user">
+        <div class="slds-var-m-around_medium">
+            <template if:true={user.data}>
+                <form class="userform">
+                    <!--Company and Department inputs-->
+                    <lightning-input
+                        label="Company Name"
+                        name="CompanyName"
+                        value={user.data.fields.CompanyName.value}
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <lightning-input
+                        label="Department"
+                        name="Department"
+                        value={user.data.fields.Department.value}
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <!--update button-->
+                    <div class="slds-align_absolute-center slds-var-m-around_medium">
+                        <lightning-button
+                            label="Update User"
+                            variant="brand"
+                            onclick={updateUser}>
+                        </lightning-button>
+                    </div>            
+                </form>
+            </template>            
+        </div>
+    </lightning-card>    
+</template>

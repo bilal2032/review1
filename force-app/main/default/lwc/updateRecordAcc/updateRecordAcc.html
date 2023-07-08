@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Updatye Record : Account" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <template if:true={acc.data}>
+                <form class="accform">
+                    <!--Account Name-->
+                    <lightning-input
+                        label="Account Name"
+                        type="text"
+                        name="Name"
+                        value={acc.data.fields.Name.value}
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <!--Phone-->
+                    <lightning-input
+                        label="Phone"
+                        type="text"
+                        name="Phone"
+                        value={acc.data.fields.Phone.value}
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <!--Website-->
+                    <lightning-input
+                        label="Website"
+                        type="text"
+                        name="Website"
+                        value={acc.data.fields.Website.value}
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <!--Annual Revenue-->
+                    <lightning-input
+                        label="Annual Revenue"
+                        type="currency"
+                        name="Name"
+                        value={acc.data.fields.AnnualRevenue.value}
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <!--Update Button-->
+                    <div class="slds-align_absolute-center slds-var-m-top_medium">
+                        <lightning-button
+                            label="Update Account"
+                            variant="brand"
+                            onclick={updateAccount}>
+                        </lightning-button>
+                    </div>
+                </form>
+            </template>            
+        </div>
+    </lightning-card>    
+</template>
