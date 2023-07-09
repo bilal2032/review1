@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Imperative Apex - SF Project Search" icon-name="standard:app">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                type="search"
+                label="Enter a key word in order to fetch mathcing Project Name"
+                onchange={searchHandler}>
+            </lightning-input>
+            <div class="slds-var-m-top_small">
+                <template if:true={projects}>
+                    <strong>Search Results:</strong><br/>
+                    <template for:each={projects} for:item="project">
+                        <div key={project.Id} class="slds-var-m-bottom_small">
+                            <strong>{project.Project_Name__c}</strong><br/>
+                            Status: {project.Status__c} <br/>
+                            Description: {project.Description__c}
+                        </div>
+                    </template>
+                </template>
+                <template if:true={error}>
+                    <strong>Search Error:</strong><br/>
+                    {error}                    
+                </template>
+            </div>
+        </div>
+    </lightning-card>    
+</template>
