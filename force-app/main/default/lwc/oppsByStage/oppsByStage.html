@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Opportunities by Stage Name" icon-name="standard:opportunity">
+        <div class="slds-var-m-around_medium">
+            <!--combo box-->
+            <template if:true={stageOptions}>
+                <lightning-combobox
+                    options={stageOptions}
+                    onchange={changeHandler}
+                    label="Select the stage">
+                </lightning-combobox>
+            </template>            
+            <div class="slds-var-m-top_small">
+                <c-display-results
+                    records = {opps}
+                    columns = {columns}
+                    error = {error}>
+                </c-display-results>
+            </div>
+        </div>
+    </lightning-card>    
+</template>

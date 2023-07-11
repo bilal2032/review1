@@ -1,0 +1,12 @@
+.search-results {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: bisque;
+    color: black;
+}
+.search-error {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: bisque;
+    color: darkred;
+}

@@ -1,0 +1,10 @@
+<template>
+    <template if:true={contacts}>
+        <template for:each={contacts} for:item='contact'>
+            <div key={contact.id}>
+                <strong>{contact.Name}</strong><br/>
+                {contact.City}
+            </div>
+        </template>
+    </template>    
+</template>
