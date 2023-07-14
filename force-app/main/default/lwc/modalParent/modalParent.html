@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Child to Parent Communication">
+        <div class="slds-var-m-around_medium">
+            <lightning-button
+                label="Create Ticket"
+                variant="brand"
+                onclick={createTicket}>
+            </lightning-button>
+            <template if:true={showModal}>
+                <c-modal-child
+                    onclose={closeHandler}>
+                </c-modal-child>
+            </template>
+            <div class="slds-var-m-top_small">
+                <template if:true={message}>
+                    <!--Primitive Data
+                        <div>{message}</div>
+                    -->
+                    <!--Non-Primitive data-->
+                    <div>{message.Name}, {message.Company}, {message.Position}</div>                    
+                </template>
+            </div>
+        </div>
+    </lightning-card>    
+</template>
